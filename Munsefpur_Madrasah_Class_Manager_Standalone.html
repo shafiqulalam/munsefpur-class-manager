@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>মাদরাসা ক্লাস ম্যানেজার</title>
+  
+  <!-- PWA Settings -->
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#064E3B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ক্লাস ম্যানেজার">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  
+  <!-- CSS -->
+  <style>
+/* Madrasah Class Manager - Modern Mobile CSS */
+:root {
+  --primary-dark: #064E3B;
+  --primary: #047857;
+  --primary-light: #10B981;
+  --primary-subtle: #ECFDF5;
+  --gold: #D97706;
+  --gold-light: #FEF3C7;
+  --gold-dark: #B45309;
+  --bg-main: #F3F4F6;
+  --card-bg: #FFFFFF;
+  --text-main: #111827;
+  --text-muted: #4B5563;
+  --border-color: #E5E7EB;
+  --danger: #DC2626;
+  --danger-light: #FEE2E2;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hind Siliguri", "Kalpurush", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+/* App Container */
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+}
+
+/* Top App Bar */
+.top-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: #FFFFFF;
+  padding: 16px 20px 24px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.madrasah-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.madrasah-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.madrasah-logo-badge {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(254, 243, 199, 0.4);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.madrasah-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+.madrasah-subtext {
+  font-size: 0.8rem;
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #FFFFFF;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover, .icon-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.96);
+}
+
+/* Teacher Info Card in Header */
+.teacher-profile-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teacher-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-name-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.teacher-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.meta-pill {
+  font-size: 0.72rem;
+  background: rgba(254, 243, 199, 0.2);
+  color: var(--gold-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  border: 1px solid rgba(254, 243, 199, 0.3);
+}
+
+/* Time & Today Banner */
+.live-time-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.live-clock {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FEF3C7;
+  letter-spacing: 0.5px;
+}
+
+/* Notification Permission Alert Banner */
+.notif-alert-banner {
+  background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 100%);
+  border: 1px solid #F59E0B;
+  color: #92400E;
+  margin: 14px 16px 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.notif-btn {
+  background: #D97706;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* 6-Day Timetable Filter Bar */
+.day-selector-section {
+  padding: 16px 16px 6px;
+}
+
+.day-selector-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.day-tabs-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.day-tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.day-tab-btn {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.day-tab-btn.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  box-shadow: 0 4px 10px rgba(4, 120, 87, 0.3);
+}
+
+.day-tab-btn.today-highlight::after {
+  content: "•";
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-left: 2px;
+}
+
+.day-tab-btn.active.today-highlight::after {
+  color: #FEF3C7;
+}
+
+/* Class List Section */
+.classes-section {
+  padding: 10px 16px;
+}
+
+.classes-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.classes-count-badge {
+  background: var(--primary-subtle);
+  color: var(--primary-dark);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Class Card */
+.class-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.class-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.class-card.active-class-pulse {
+  border: 2px solid var(--primary-light);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
+}
+
+.class-card.active-class-pulse::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--primary-light);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.subject-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subject-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.class-grade-tag {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  font-size: 0.78rem;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  border: 1px solid #BFDBFE;
+}
+
+.class-status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.status-ongoing {
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #86EFAC;
+  animation: pulse 1.8s infinite;
+}
+
+.status-upcoming {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FCD34D;
+}
+
+.status-completed {
+  background: #F3F4F6;
+  color: #6B7280;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+/* Time & Day Info */
+.card-time-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: #F9FAFB;
+  border-radius: var(--radius-md);
+  border: 1px solid #F3F4F6;
+}
+
+.time-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.time-item .icon {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.day-badge {
+  font-size: 0.78rem;
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+/* Teacher and Session Info */
+.card-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Card Actions */
+.card-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #F3F4F6;
+}
+
+.repeat-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.card-action-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-sm-action {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 5px 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.btn-sm-action:hover {
+  background: #F3F4F6;
+  color: var(--text-main);
+}
+
+.btn-sm-action.btn-delete:hover {
+  background: var(--danger-light);
+  color: var(--danger);
+  border-color: #FCA5A5;
+}
+
+.btn-sm-action.btn-test-sound:hover {
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  border-color: #FCD34D;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1.5px dashed var(--border-color);
+  margin: 10px 0;
+}
+
+.empty-icon {
+  font-size: 44px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.empty-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.empty-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 280px;
+  margin: 0 auto 16px;
+}
+
+/* Floating Action Button (FAB) */
+.fab-add-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--gold) 0%, #EA580C 100%);
+  color: #FFFFFF;
+  border: none;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.4);
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fab-add-btn:active {
+  transform: scale(0.92);
+}
+
+/* Modal Windows */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.2s;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-sheet {
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 560px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 24px 20px 32px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-close-btn {
+  background: #F3F4F6;
+  border: none;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.15);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--primary-subtle);
+  border-radius: var(--radius-md);
+  border: 1px solid #A7F3D0;
+  cursor: pointer;
+}
+
+.checkbox-wrap input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Alarm Alert Fullscreen Modal */
+.alarm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(6, 78, 59, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.alarm-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.alarm-icon-bell {
+  font-size: 72px;
+  margin-bottom: 16px;
+  animation: ringShake 0.6s infinite alternate;
+}
+
+@keyframes ringShake {
+  from { transform: rotate(-18deg) scale(1.05); }
+  to { transform: rotate(18deg) scale(1.15); }
+}
+
+.alarm-headline {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FEF3C7;
+  margin-bottom: 8px;
+}
+
+.alarm-subject-box {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(254, 243, 199, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  margin: 16px 0 24px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.alarm-subject-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.alarm-class-name {
+  font-size: 1.1rem;
+  color: #FEF3C7;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.alarm-time-range {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+}
+
+.btn-stop-alarm {
+  background: #DC2626;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 36px;
+  border-radius: var(--radius-full);
+  font-size: 1.15rem;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-stop-alarm:active {
+  transform: scale(0.94);
+}
+
+/* Welcome Login Screen */
+.login-view {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--primary-dark) 0%, #064E3B 40%, var(--bg-main) 40%, var(--bg-main) 100%);
+  padding: 30px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  margin-top: 20px;
+}
+
+.login-brand-header {
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.login-brand-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.login-brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FEF3C7;
+}
+
+.login-brand-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Install PWA Prompt Bar */
+.install-pwa-bar {
+  background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 100%);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.btn-install-pwa {
+  background: #FFFFFF;
+  color: #1E3A8A;
+  border: none;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- PWA Install Prompt Banner (Shows on mobile) -->
+  <div id="pwaInstallBar" class="install-pwa-bar" style="display: none;">
+    <div>
+      <strong>📲 সরাসরি মোবাইলে ইনস্টল করুন</strong>
+      <div style="font-size: 0.75rem; opacity: 0.9;">অ্যাপ আইকন হিসেবে হোমস্ক্রিনে যোগ হবে</div>
+    </div>
+    <button id="btnInstallPwa" class="btn-install-pwa">ইনস্টল করুন</button>
+  </div>
+
+  <!-- VIEW 1: LOGIN / SETUP SCREEN -->
+  <div id="loginView" class="login-view">
+    <div class="login-brand-header">
+      <div class="login-brand-icon">🕌</div>
+      <h1 class="login-brand-title">মাদরাসা ক্লাস ম্যানেজার</h1>
+      <p class="login-brand-subtitle">শিক্ষক ও ক্লাস রুটিন ম্যানেজমেন্ট সিস্টেম</p>
+    </div>
+
+    <div class="login-card">
+      <h2 style="font-size: 1.15rem; color: var(--primary-dark); margin-bottom: 16px; text-align: center; font-weight: 700;">
+        শিক্ষক ও প্রতিষ্ঠান পরিচিতি
+      </h2>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginMadrasahName">প্রতিষ্ঠানের নাম *</label>
+          <input type="text" id="loginMadrasahName" class="form-input" placeholder="মুনসেফপুর ফাজিল মাদরাসা" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginTeacherName">শিক্ষকের নাম *</label>
+          <input type="text" id="loginTeacherName" class="form-input" placeholder="মো: শফিকুল আলম" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginSubjectName">বিষয়ের নাম / পদবি *</label>
+          <input type="text" id="loginSubjectName" class="form-input" placeholder="যেমন: আল-কুরআন ও আরবি সাহিত্য" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginIndexNo">ইনডেক্স নম্বর *</label>
+          <input type="text" id="loginIndexNo" class="form-input" placeholder="যেমন: ১২৩৪৫৬৭" required>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 16px;">
+          লগইন ও তথ্য সংরক্ষণ করুন ➔
+        </button>
+      </form>
+
+      <div style="margin-top: 18px; font-size: 0.78rem; text-align: center; color: var(--text-muted);">
+        🔒 আপনার তথ্য আপনার ডিভাইসেই সুরক্ষিতভাবে সংরক্ষিত থাকবে।
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW 2: MAIN DASHBOARD -->
+  <div id="mainAppView" class="app-container" style="display: none;">
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="madrasah-brand">
+        <div class="madrasah-title-wrap">
+          <div class="madrasah-logo-badge">🕌</div>
+          <div>
+            <div id="dispMadrasahName" class="madrasah-name">মাদরাসার নাম</div>
+            <div class="madrasah-subtext">ক্লাস রুটিন ও অটো অ্যালার্ম</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="btnOpenQrModal" class="icon-btn" title="মোবাইলে শেয়ার / ইনস্টল">📲</button>
+          <button id="btnOpenProfileModal" class="icon-btn" title="প্রোফাইল ও সেটিংস">⚙️</button>
+        </div>
+      </div>
+
+      <!-- Teacher Info Card -->
+      <div class="teacher-profile-card">
+        <div class="teacher-details">
+          <div id="dispTeacherName" class="teacher-name-heading">শিক্ষকের নাম</div>
+          <div class="teacher-meta-pills">
+            <span class="meta-pill" id="dispTeacherSubject">বিষয়: কুরআন</span>
+            <span class="meta-pill" id="dispTeacherIndex">ইনডেক্স: ০০০০০০</span>
+          </div>
+        </div>
+        <button id="btnQuickTestSound" class="icon-btn" style="background: rgba(254, 243, 199, 0.25);" title="বেল রিংটন পরীক্ষা করুন">
+          🔔
+        </button>
+      </div>
+
+      <!-- Live Clock & Date Banner -->
+      <div class="live-time-banner">
+        <div>
+          📅 <span id="dispCurrentDate">আজকের তারিখ</span>
+        </div>
+        <div class="live-clock" id="dispCurrentTime">
+          ০০:০০:০০ AM
+        </div>
+      </div>
+    </header>
+
+    <!-- Notification Permission Banner (if permission not granted) -->
+    <div id="notifBanner" class="notif-alert-banner" style="display: none;">
+      <div>
+        <strong>🔔 ক্লাসের অ্যালার্ম রিংটন চালু করুন</strong>
+        <div style="font-size: 0.75rem;">ক্লাসের সঠিক সময়ে রিং বাজাতে নোটিফিকেশন অনুমতি দিন</div>
+      </div>
+      <button id="btnGrantNotif" class="notif-btn">অনুমতি দিন</button>
+    </div>
+
+    <!-- 6-Day Timetable Filter Bar -->
+    <section class="day-selector-section">
+      <div class="day-selector-title">
+        <span>📅 ৬ দিনের ক্লাস রুটিন</span>
+        <span style="font-size: 0.75rem; color: var(--primary); font-weight: 600;">(শনি - বৃহস্পতি)</span>
+      </div>
+
+      <div class="day-tabs-scroll">
+        <button class="day-tab-btn active" data-day="today">আজকের ক্লাস</button>
+        <button class="day-tab-btn" data-day="sat">শনিবার</button>
+        <button class="day-tab-btn" data-day="sun">রবিবার</button>
+        <button class="day-tab-btn" data-day="mon">সোমবার</button>
+        <button class="day-tab-btn" data-day="tue">মঙ্গলবার</button>
+        <button class="day-tab-btn" data-day="wed">বুধবার</button>
+        <button class="day-tab-btn" data-day="thu">বৃহস্পতিবার</button>
+        <button class="day-tab-btn" data-day="all">সব দিন</button>
+      </div>
+    </section>
+
+    <!-- Class Cards Section -->
+    <section class="classes-section">
+      <div class="classes-header-bar">
+        <h3 id="currentDayHeading" style="font-size: 1rem; font-weight: 700; color: var(--text-main);">
+          আজকের ক্লাসের তালিকা
+        </h3>
+        <span id="classesCountBadge" class="classes-count-badge">০টি ক্লাস</span>
+      </div>
+
+      <!-- Class Cards Container -->
+      <div id="classListContainer">
+        <!-- Dynamically injected cards -->
+      </div>
+    </section>
+
+    <!-- Floating Action Button: Add Class -->
+    <button id="btnOpenAddClassModal" class="fab-add-btn" title="নতুন ক্লাস পিরিয়ড যুক্ত করুন">
+      ＋
+    </button>
+  </div>
+
+  <!-- MODAL 1: ADD / EDIT CLASS PERIOD -->
+  <div id="classModal" class="modal-overlay">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📖</span>
+          <span id="classModalTitle">নতুন ক্লাস পিরিয়ড যুক্ত করুন</span>
+        </div>
+        <button id="btnCloseClassModal" class="modal-close-btn">✕</button>
+      </div>
+
+      <form id="classPeriodForm">
+        <input type="hidden" id="editClassId" value="">
+
+        <!-- Teacher's Name -->
+        <div class="form-group">
+          <label class="form-label" for="periodTeacherName">শিক্ষকের নাম *</label>
+          <input type="text" id="periodTeacherName" class="form-input" placeholder="মো: শফিকুল আলম" required>
+        </div>
+
+        <!-- Subject Selection -->
+        <div class="form-group">
+          <label class="form-label" for="periodSubject">বিষয় *</label>
+          <select id="periodSubject" class="form-select" required>
+            <option value="">বিষয় নির্বাচন করুন</option>
+            <option value="কুরআন মাজিদ ও তাজভিদ">কুরআন মাজিদ ও তাজভিদ</option>
+            <option value="হাদিস শরিফ">হাদিস শরিফ</option>
+            <option value="আল ফিকহ">আল ফিকহ</option>
+            <option value="আকাইদ ও ফিকহ">আকাইদ ও ফিকহ</option>
+            <option value="আরবি ১ম পত্র">আরবি ১ম পত্র</option>
+            <option value="আরবি ২য় পত্র">আরবি ২য় পত্র</option>
+            <option value="বালাগাত ও মানতিক">বালাগাত ও মানতিক</option>
+            <option value="বাংলা">বাংলা</option>
+            <option value="ইংরেজি">ইংরেজি</option>
+            <option value="গণিত">গণিত</option>
+            <option value="সাধারণ বিজ্ঞান">সাধারণ বিজ্ঞান</option>
+            <option value="বাংলাদেশ ও বিশ্বপরিচয়">বাংলাদেশ ও বিশ্বপরিচয়</option>
+            <option value="তথ্য ও যোগাযোগ প্রযুক্তি">তথ্য ও যোগাযোগ প্রযুক্তি</option>
+            <option value="হিফজুল কুরআন">হিফজুল কুরআন</option>
+            <option value="কাস্টম">অন্যান্য বিষয় (নিজে লিখুন)</option>
+          </select>
+          <input type="text" id="periodCustomSubject" class="form-input" placeholder="বিষয়ের নাম লিখুন..." style="display: none; margin-top: 8px;">
+        </div>
+
+        <!-- Class / Jamat -->
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="periodClass">শ্রেণি / জামাত *</label>
+            <select id="periodClass" class="form-select" required>
+              <option value="">শ্রেণি নির্বাচন করুন</option>
+              <option value="শিশু শ্রেণি">শিশু শ্রেণি</option>
+              <option value="১ম শ্রেণি">১ম শ্রেণি</option>
+              <option value="২য় শ্রেণি">২য় শ্রেণি</option>
+              <option value="৩য় শ্রেণি">৩য় শ্রেণি</option>
+              <option value="৪র্থ শ্রেণি">৪র্থ শ্রেণি</option>
+              <option value="৫ম শ্রেণি (ইবতেদায়ী)">৫ম শ্রেণি (ইবতেদায়ী)</option>
+              <option value="৬ষ্ঠ শ্রেণি">৬ষ্ঠ শ্রেণি</option>
+              <option value="৭ম শ্রেণি">৭ম শ্রেণি</option>
+              <option value="৮ম শ্রেণি (জেডিসি)">৮ম শ্রেণি (জেডিসি)</option>
+              <option value="দাখিল ৯ম">দাখিল ৯ম</option>
+              <option value="দাখিল ১০ম">দাখিল ১০ম</option>
+              <option value="আলিম ১ম বর্ষ">আলিম ১ম বর্ষ</option>
+              <option value="আলিম ২য় বর্ষ">আলিম ২য় বর্ষ</option>
+              <option value="ফাজিল">ফাজিল</option>
+              <option value="কামিল">কামিল</option>
+              <option value="হিফজ বিভাগ">হিফজ বিভাগ</option>
+              <option value="কিতাব বিভাগ">কিতাব বিভাগ</option>
+              <option value="কাস্টম">অন্যান্য শ্রেণি (নিজে লিখুন)</option>
+            </select>
+            <input type="text" id="periodCustomClass" class="form-input" placeholder="শ্রেণির নাম লিখুন..." style="display: none; margin-top: 8px;">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="periodSession">সেশন / শাখা *</label>
+            <input type="text" id="periodSession" class="form-input" placeholder="যেমন: ২০২৬ / শাখা-ক" required>
+          </div>
+        </div>
+
+        <!-- Day of Week & Date -->
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="periodDay">বার / দিন *</label>
+            <select id="periodDay" class="form-select" required>
+              <option value="sat">শনিবার</option>
+              <option value="sun">রবিবার</option>
+              <option value="mon">সোমবার</option>
+              <option value="tue">মঙ্গলবার</option>
+              <option value="wed">বুধবার</option>
+              <option value="thu">বৃহস্পতিবার</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="periodRoom">রুম / কক্ষ নং</label>
+            <input type="text" id="periodRoom" class="form-input" placeholder="যেমন: ১০২">
+          </div>
+        </div>
+
+        <!-- Start Time & End Time -->
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="periodStartTime">ক্লাস শুরুর সময় *</label>
+            <input type="time" id="periodStartTime" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="periodEndTime">ক্লাস শেষের সময় *</label>
+            <input type="time" id="periodEndTime" class="form-input" required>
+          </div>
+        </div>
+
+        <!-- Specific Date (Optional) -->
+        <div class="form-group">
+          <label class="form-label" for="periodDate">নির্দিষ্ট তারিখ (ঐচ্ছিক)</label>
+          <input type="date" id="periodDate" class="form-input">
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+            খালি রাখলে এটি প্রতি সপ্তাহের নির্বাচিত বারে পুনরাবৃত্তি হবে।
+          </div>
+        </div>
+
+        <!-- Repeat Checkbox -->
+        <div class="form-group">
+          <label class="checkbox-wrap">
+            <input type="checkbox" id="periodRepeat" checked>
+            <span class="checkbox-label">🔄 প্রতি সপ্তাহে এই বারে পুনরাবৃত্তি হবে (Repeat Weekly)</span>
+          </label>
+        </div>
+
+        <!-- Enable Alarm Checkbox -->
+        <div class="form-group">
+          <label class="checkbox-wrap" style="background: var(--gold-light); border-color: #FCD34D;">
+            <input type="checkbox" id="periodAlarm" checked>
+            <span class="checkbox-label" style="color: var(--gold-dark);">🔔 ক্লাসের শুরুতে রিংটোন ও নোটিফিকেশন বাজবে</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary" id="btnSavePeriod">
+          💾 ক্লাস সংরক্ষণ করুন
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: TEACHER PROFILE & SETTINGS -->
+  <div id="profileModal" class="modal-overlay">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚙️</span>
+          <span>শিক্ষক প্রোফাইল ও সেটিংস</span>
+        </div>
+        <button id="btnCloseProfileModal" class="modal-close-btn">✕</button>
+      </div>
+
+      <form id="profileEditForm">
+        <div class="form-group">
+          <label class="form-label" for="editMadrasahName">প্রতিষ্ঠানের নাম</label>
+          <input type="text" id="editMadrasahName" class="form-input" placeholder="মুনসেফপুর ফাজিল মাদরাসা" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="editTeacherName">শিক্ষকের নাম</label>
+          <input type="text" id="editTeacherName" class="form-input" placeholder="মো: শফিকুল আলম" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="editSubjectName">মূল বিষয়</label>
+          <input type="text" id="editSubjectName" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="editIndexNo">ইনডেক্স নম্বর</label>
+          <input type="text" id="editIndexNo" class="form-input" required>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          প্রোফাইল পরিবর্তন সংরক্ষণ করুন
+        </button>
+      </form>
+
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
+
+      <!-- Ringtone Sound Test -->
+      <div style="background: #F9FAFB; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 6px;">🔔 মাদ্রাসা বেল রিংটন পরীক্ষা</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">
+          ফোনের সাউন্ড ঠিকমতো বাজছে কিনা তা যাচাই করুন।
+        </div>
+        <button id="btnTestSoundFull" class="btn-sm-action btn-test-sound" style="width: 100%; justify-content: center; padding: 8px;">
+          🔊 রিংটন বাজিয়ে দেখুন (Play Sound)
+        </button>
+      </div>
+
+      <!-- Logout / Reset -->
+      <button id="btnLogout" class="btn-sm-action btn-delete" style="width: 100%; justify-content: center; padding: 10px; margin-top: 16px;">
+        🚪 প্রোফাইল লগআউট করুন
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 3: MOBILE INSTALL / QR SHARE MODAL -->
+  <div id="qrModal" class="modal-overlay">
+    <div class="modal-sheet" style="text-align: center;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📲</span>
+          <span>মোবাইলে সরাসরি ইনস্টল করুন</span>
+        </div>
+        <button id="btnCloseQrModal" class="modal-close-btn">✕</button>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+        নিচের কিউআর কোডটি আপনার মোবাইলের ক্যামেরা দিয়ে স্ক্যান করুন অথবা লিংকে যান:
+      </p>
+
+      <!-- QR Code Canvas / Container -->
+      <div id="qrCodeContainer" style="display: flex; justify-content: center; margin-bottom: 16px;">
+        <canvas id="qrCanvas" style="border: 8px solid #FFFFFF; border-radius: 12px; box-shadow: var(--shadow-md);"></canvas>
+      </div>
+
+      <div style="background: #ECFDF5; border: 1px solid #A7F3D0; padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 16px; word-break: break-all;">
+        <span style="font-size: 0.8rem; color: var(--primary-dark);">মোবাইলে ওপেন করার লিংক:</span><br>
+        <strong id="mobileUrlDisplay" style="color: var(--primary); font-size: 0.95rem;"></strong>
+      </div>
+
+      <div style="text-align: left; font-size: 0.82rem; color: var(--text-muted); background: #F9FAFB; padding: 12px; border-radius: var(--radius-md);">
+        <strong>📱 মোবাইলে ইনস্টল করার নিয়ম:</strong>
+        <ol style="padding-left: 20px; margin-top: 6px; line-height: 1.6;">
+          <li>মোবাইলের Google Chrome বা Opera ব্রাউজারে লিংকটি খুলুন।</li>
+          <li>ব্রাউজারের ৩ ডট মেনু (⋮) তে চাপ দিন।</li>
+          <li><strong>"Install app"</strong> বা <strong>"Add to Home Screen" (হোম স্ক্রিনে যোগ করুন)</strong> এ ক্লিক করুন।</li>
+          <li>সাথে সাথে এটি আপনার মোবাইলে একটি আসল অ্যাপ হিসেবে সেভ হয়ে যাবে এবং অফলাইনেও চলবে!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: ALARM RINGING FULLSCREEN OVERLAY -->
+  <div id="alarmOverlay" class="alarm-overlay">
+    <div class="alarm-icon-bell">🔔</div>
+    <h2 class="alarm-headline">ক্লাসের সময় হয়েছে!</h2>
+    <p style="font-size: 1rem; opacity: 0.9;">আপনার নির্ধারিত ক্লাসের সময় শুরু হয়ে গেছে</p>
+
+    <div class="alarm-subject-box">
+      <div id="alarmSubject" class="alarm-subject-name">কুরআন মাজিদ</div>
+      <div id="alarmClass" class="alarm-class-name">শ্রেণি: দাখিল ১০ম • সেশন: ২০২৬</div>
+      <div id="alarmTeacher" style="font-size: 0.9rem; color: #FFFFFF; margin-top: 4px;">শিক্ষক: মাওলানা আব্দুল্লাহ</div>
+      <div id="alarmTime" class="alarm-time-range">সময়: ০৯:০০ AM - ০৯:৪৫ AM</div>
+      <div id="alarmRoom" style="font-size: 0.85rem; color: #FEF3C7; margin-top: 4px;">রুম: ১০২</div>
+    </div>
+
+    <button id="btnDismissAlarm" class="btn-stop-alarm">
+      🔕 অ্যালার্ম বন্ধ করুন
+    </button>
+  </div>
+
+  <!-- Scripts -->
+
+  <script>
+    // Inlined Audio Engine
+    // Audio Engine for Madrasah Class Manager
+// Synthesizes realistic bell chimes and alarms without requiring external mp3 downloads
+
+let audioCtx = null;
+let activeAlarmInterval = null;
+let isAlarmPlaying = false;
+
+function getAudioContext() {
+  if (!audioCtx) {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtx = new AudioContextClass();
+    }
+  }
+  if (audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
+
+// Single bell strike with realistic physical decay
+function strikeBell(freq, duration = 2.0, volume = 0.5) {
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  const now = ctx.currentTime;
+  
+  // Harmonics for a bronze/brass bell sound
+  const harmonics = [
+    { mult: 1.0, gain: 0.6, decay: duration },
+    { mult: 1.5, gain: 0.3, decay: duration * 0.8 },
+    { mult: 2.0, gain: 0.2, decay: duration * 0.6 },
+    { mult: 2.76, gain: 0.15, decay: duration * 0.4 },
+    { mult: 4.07, gain: 0.08, decay: duration * 0.25 }
+  ];
+
+  harmonics.forEach(h => {
+    const osc = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq * h.mult, now);
+
+    // Exponential decay curve
+    gainNode.gain.setValueAtTime(h.gain * volume, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, now + h.decay);
+
+    osc.connect(gainNode);
+    gainNode.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + h.decay);
+  });
+}
+
+// Traditional School/Madrasah Double Chime (Ding-Dong)
+function playMadrasahBell() {
+  getAudioContext();
+  // Strike 1: High tone (D5 ~ 587 Hz)
+  strikeBell(587.33, 1.8, 0.6);
+  
+  // Strike 2: Low tone (A4 ~ 440 Hz) after 600ms
+  setTimeout(() => {
+    strikeBell(440.00, 2.2, 0.7);
+  }, 600);
+
+  // Repeat sequence after 1.5s
+  setTimeout(() => {
+    strikeBell(659.25, 1.8, 0.6); // E5
+  }, 1400);
+
+  setTimeout(() => {
+    strikeBell(523.25, 2.4, 0.75); // C5
+  }, 2000);
+}
+
+// Repeating Urgent Ringtone for Class Start
+function startAlarmRingtone() {
+  if (isAlarmPlaying) return;
+  isAlarmPlaying = true;
+  getAudioContext();
+
+  // Play immediate bell pattern
+  playMadrasahBell();
+
+  // Pulse vibration if supported
+  if ('vibrate' in navigator) {
+    try {
+      navigator.vibrate([500, 250, 500, 250, 500, 500, 500]);
+    } catch (e) {
+      console.log('Vibration error:', e);
+    }
+  }
+
+  // Loop every 3.2 seconds until explicitly stopped
+  activeAlarmInterval = setInterval(() => {
+    if (!isAlarmPlaying) {
+      clearInterval(activeAlarmInterval);
+      return;
+    }
+    playMadrasahBell();
+    if ('vibrate' in navigator) {
+      try {
+        navigator.vibrate([500, 250, 500, 250, 500]);
+      } catch (e) {}
+    }
+  }, 3200);
+}
+
+function stopAlarmRingtone() {
+  isAlarmPlaying = false;
+  if (activeAlarmInterval) {
+    clearInterval(activeAlarmInterval);
+    activeAlarmInterval = null;
+  }
+  if ('vibrate' in navigator) {
+    try {
+      navigator.vibrate(0); // Cancel vibration
+    } catch (e) {}
+  }
+}
+
+// Preview sound for test button
+function previewBellSound() {
+  getAudioContext();
+  playMadrasahBell();
+  if ('vibrate' in navigator) {
+    try {
+      navigator.vibrate([300, 150, 300]);
+    } catch (e) {}
+  }
+}
+
+window.AudioEngine = {
+  getAudioContext,
+  playMadrasahBell,
+  startAlarmRingtone,
+  stopAlarmRingtone,
+  previewBellSound,
+  isAlarmPlaying: () => isAlarmPlaying
+};
+
+  </script>
+  <script>
+    // Inlined App Logic
+    // Madrasah Class Manager - Main Application Logic
+
+const STORAGE_KEY_PROFILE = 'madrasah_profile_v1';
+const STORAGE_KEY_CLASSES = 'madrasah_classes_v1';
+const STORAGE_KEY_TRIGGERED = 'madrasah_alarm_triggered_v1';
+
+// Bengali Day Names Map
+const DAYS_CONFIG = {
+  'sat': { name: 'শনিবার', short: 'শনি', jsDay: 6 },
+  'sun': { name: 'রবিবার', short: 'রবি', jsDay: 0 },
+  'mon': { name: 'সোমবার', short: 'সোম', jsDay: 1 },
+  'tue': { name: 'মঙ্গলবার', short: 'মঙ্গল', jsDay: 2 },
+  'wed': { name: 'বুধবার', short: 'বুধ', jsDay: 3 },
+  'thu': { name: 'বৃহস্পতিবার', short: 'বৃহস্পতি', jsDay: 4 }
+};
+
+// Bengali Numerals Converter
+function toBengaliNum(numStr) {
+  const bnNums = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  return String(numStr).replace(/[0-9]/g, w => bnNums[+w]);
+}
+
+// Convert 24hr time "HH:MM" to 12hr "hh:mm AM/PM" in Bengali
+function formatTime12h(time24) {
+  if (!time24) return '';
+  const parts = time24.split(':');
+  let hours = parseInt(parts[0], 10);
+  const minutes = parts[1];
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // 0 should be 12
+  const formattedHours = hours < 10 ? '0' + hours : hours;
+  return `${toBengaliNum(formattedHours)}:${toBengaliNum(minutes)} ${ampm}`;
+}
+
+// Convert Date to Bengali Format
+function getFormattedBengaliDate() {
+  const now = new Date();
+  const dayIndex = now.getDay();
+  const dayNames = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার (ছুটি)', 'শনিবার'];
+  const monthNames = [
+    'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন',
+    'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+  ];
+  const dayName = dayNames[dayIndex];
+  const dateNum = toBengaliNum(now.getDate());
+  const monthName = monthNames[now.getMonth()];
+  const yearNum = toBengaliNum(now.getFullYear());
+  return `${dayName}, ${dateNum} ${monthName} ${yearNum}`;
+}
+
+// App State
+let state = {
+  profile: null,
+  classes: [],
+  selectedDayTab: 'today',
+  deferredInstallPrompt: null,
+  activeAlarmClass: null
+};
+
+// ==========================================
+// INITIALIZATION
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  initProfile();
+  initClasses();
+  initLiveClock();
+  initTabs();
+  initModals();
+  initAlarmScheduler();
+  initServiceWorker();
+  initPwaInstall();
+  initQrCode();
+});
+
+// ==========================================
+// TEACHER PROFILE & AUTH
+// ==========================================
+function initProfile() {
+  const savedProfile = localStorage.getItem(STORAGE_KEY_PROFILE);
+  if (savedProfile) {
+    try {
+      state.profile = JSON.parse(savedProfile);
+      showMainApp();
+    } catch (e) {
+      showLoginView();
+    }
+  } else {
+    showLoginView();
+  }
+
+  // Handle Login Form Submit
+  const loginForm = document.getElementById('loginForm');
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const profile = {
+      madrasahName: document.getElementById('loginMadrasahName').value.trim(),
+      teacherName: document.getElementById('loginTeacherName').value.trim(),
+      subjectName: document.getElementById('loginSubjectName').value.trim(),
+      indexNo: document.getElementById('loginIndexNo').value.trim()
+    };
+    saveProfile(profile);
+  });
+
+  // Handle Edit Profile Form Submit
+  const profileEditForm = document.getElementById('profileEditForm');
+  profileEditForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const profile = {
+      madrasahName: document.getElementById('editMadrasahName').value.trim(),
+      teacherName: document.getElementById('editTeacherName').value.trim(),
+      subjectName: document.getElementById('editSubjectName').value.trim(),
+      indexNo: document.getElementById('editIndexNo').value.trim()
+    };
+    saveProfile(profile);
+    closeModal('profileModal');
+  });
+
+  // Logout Button
+  document.getElementById('btnLogout').addEventListener('click', () => {
+    if (confirm('আপনি কি নিশ্চিত যে প্রোফাইল থেকে লগআউট করতে চান?')) {
+      localStorage.removeItem(STORAGE_KEY_PROFILE);
+      state.profile = null;
+      closeModal('profileModal');
+      showLoginView();
+    }
+  });
+}
+
+function saveProfile(profile) {
+  state.profile = profile;
+  localStorage.setItem(STORAGE_KEY_PROFILE, JSON.stringify(profile));
+  showMainApp();
+}
+
+function showLoginView() {
+  document.getElementById('loginView').style.display = 'flex';
+  document.getElementById('mainAppView').style.display = 'none';
+}
+
+function showMainApp() {
+  document.getElementById('loginView').style.display = 'none';
+  document.getElementById('mainAppView').style.display = 'block';
+
+  // Update Header UI
+  document.getElementById('dispMadrasahName').textContent = state.profile.madrasahName || 'মুনসেফপুর ফাজিল মাদরাসা';
+  document.getElementById('dispTeacherName').textContent = state.profile.teacherName || 'মো: শফিকুল আলম';
+  document.getElementById('dispTeacherSubject').textContent = `বিষয়: ${state.profile.subjectName || 'সাধারণ'}`;
+  document.getElementById('dispTeacherIndex').textContent = `ইনডেক্স: ${toBengaliNum(state.profile.indexNo || '০০০০০০')}`;
+
+  // Populate Edit Profile inputs
+  document.getElementById('editMadrasahName').value = state.profile.madrasahName || 'মুনসেফপুর ফাজিল মাদরাসা';
+  document.getElementById('editTeacherName').value = state.profile.teacherName || 'মো: শফিকুল আলম';
+  document.getElementById('editSubjectName').value = state.profile.subjectName || '';
+  document.getElementById('editIndexNo').value = state.profile.indexNo || '';
+
+  renderClasses();
+  checkNotificationPermission();
+}
+
+// ==========================================
+// LIVE CLOCK & DATE
+// ==========================================
+function initLiveClock() {
+  const clockEl = document.getElementById('dispCurrentTime');
+  const dateEl = document.getElementById('dispCurrentDate');
+
+  function update() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const formattedHours = String(hours).padStart(2, '0');
+
+    clockEl.textContent = `${toBengaliNum(formattedHours)}:${toBengaliNum(minutes)}:${toBengaliNum(seconds)} ${ampm}`;
+    dateEl.textContent = getFormattedBengaliDate();
+  }
+
+  update();
+  setInterval(update, 1000);
+}
+
+// ==========================================
+// CLASS PERIODS MANAGEMENT & DEMO DATA
+// ==========================================
+function initClasses() {
+  const saved = localStorage.getItem(STORAGE_KEY_CLASSES);
+  if (saved) {
+    try {
+      state.classes = JSON.parse(saved);
+    } catch (e) {
+      state.classes = [];
+    }
+  } else {
+    // Load initial realistic default schedule for a Madrasah Teacher
+    state.classes = [
+      {
+        id: 'cls_1',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'কুরআন মাজিদ ও তাজভিদ',
+        className: 'দাখিল ১০ম',
+        session: '২০২৬',
+        day: 'sat',
+        startTime: '09:00',
+        endTime: '09:45',
+        room: '১০১',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      },
+      {
+        id: 'cls_2',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'হাদিস শরিফ',
+        className: 'দাখিল ৯ম',
+        session: '২০২৬',
+        day: 'sat',
+        startTime: '10:00',
+        endTime: '10:45',
+        room: '১০২',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      },
+      {
+        id: 'cls_3',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'আল ফিকহ',
+        className: '৮ম শ্রেণি (জেডিসি)',
+        session: '২০২৬',
+        day: 'sun',
+        startTime: '09:00',
+        endTime: '09:45',
+        room: '২০১',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      },
+      {
+        id: 'cls_4',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'আরবি ১ম পত্র',
+        className: '৭ম শ্রেণি',
+        session: '২০২৬',
+        day: 'mon',
+        startTime: '10:30',
+        endTime: '11:15',
+        room: '১০৩',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      },
+      {
+        id: 'cls_5',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'কুরআন মাজিদ ও তাজভিদ',
+        className: 'আলিম ১ম বর্ষ',
+        session: '২০২৬',
+        day: 'tue',
+        startTime: '09:15',
+        endTime: '10:00',
+        room: '২০৪',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      },
+      {
+        id: 'cls_6',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'হাদিস শরিফ',
+        className: 'দাখিল ১০ম',
+        session: '২০২৬',
+        day: 'wed',
+        startTime: '11:00',
+        endTime: '11:45',
+        room: '১০১',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      },
+      {
+        id: 'cls_7',
+        teacherName: state.profile ? state.profile.teacherName : 'মো: শফিকুল আলম',
+        subject: 'আকাইদ ও ফিকহ',
+        className: '৬ষ্ঠ শ্রেণি',
+        session: '২০২৬',
+        day: 'thu',
+        startTime: '09:00',
+        endTime: '09:45',
+        room: '১০৫',
+        repeat: true,
+        alarmEnabled: true,
+        date: ''
+      }
+    ];
+    saveClasses();
+  }
+}
+
+function saveClasses() {
+  localStorage.setItem(STORAGE_KEY_CLASSES, JSON.stringify(state.classes));
+  renderClasses();
+}
+
+// Current day code ('sat', 'sun', 'mon', 'tue', 'wed', 'thu', or 'fri')
+function getCurrentDayCode() {
+  const jsDay = new Date().getDay();
+  for (const [code, info] of Object.entries(DAYS_CONFIG)) {
+    if (info.jsDay === jsDay) return code;
+  }
+  return 'fri'; // Friday
+}
+
+// Render the Class Cards
+function renderClasses() {
+  const container = document.getElementById('classListContainer');
+  const countBadge = document.getElementById('classesCountBadge');
+  const headingEl = document.getElementById('currentDayHeading');
+
+  const currentDayCode = getCurrentDayCode();
+  let filterDay = state.selectedDayTab;
+
+  if (filterDay === 'today') {
+    if (currentDayCode === 'fri') {
+      headingEl.textContent = 'আজ শুক্রবার (সাপ্তাহিক ছুটি)';
+    } else {
+      headingEl.textContent = `আজকের ক্লাস (${DAYS_CONFIG[currentDayCode].name})`;
+    }
+  } else if (filterDay === 'all') {
+    headingEl.textContent = '৬ দিনের সম্পূর্ণ ক্লাস রুটিন';
+  } else {
+    headingEl.textContent = `${DAYS_CONFIG[filterDay].name}-এর ক্লাস রুটিন`;
+  }
+
+  // Filter classes
+  let filtered = [];
+  if (filterDay === 'today') {
+    if (currentDayCode !== 'fri') {
+      filtered = state.classes.filter(c => c.day === currentDayCode);
+    }
+  } else if (filterDay === 'all') {
+    filtered = [...state.classes];
+  } else {
+    filtered = state.classes.filter(c => c.day === filterDay);
+  }
+
+  // Sort by startTime
+  filtered.sort((a, b) => a.startTime.localeCompare(b.startTime));
+
+  countBadge.textContent = `${toBengaliNum(filtered.length)}টি ক্লাস`;
+
+  if (filtered.length === 0) {
+    if (filterDay === 'today' && currentDayCode === 'fri') {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">🕌</div>
+          <div class="empty-title">আজ শুক্রবার - সাপ্তাহিক ছুটি!</div>
+          <div class="empty-desc">
+            আজ কোনো নির্ধারিত ক্লাস নেই। শনিবার থেকে বৃহস্পতিবার রুটিন দেখতে ওপরের বার নির্বাচন করুন।
+          </div>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">📚</div>
+          <div class="empty-title">কোনো ক্লাস যুক্ত করা হয়নি</div>
+          <div class="empty-desc">
+            এই বারে কোনো ক্লাস পিরিয়ড পাওয়া যায়নি। নতুন ক্লাস যুক্ত করতে নিচে '+' বোতাম চাপুন।
+          </div>
+          <button class="btn-primary" style="max-width: 200px; margin: 0 auto; padding: 10px;" onclick="openAddClassModal()">
+            ＋ নতুন ক্লাস যোগ করুন
+          </button>
+        </div>
+      `;
+    }
+    return;
+  }
+
+  // Calculate current time status
+  const now = new Date();
+  const nowMins = now.getHours() * 60 + now.getMinutes();
+
+  container.innerHTML = filtered.map(item => {
+    // Parse time to minutes
+    const [startH, startM] = item.startTime.split(':').map(Number);
+    const [endH, endM] = item.endTime.split(':').map(Number);
+    const startMins = startH * 60 + startM;
+    const endMins = endH * 60 + endM;
+
+    let statusPill = '';
+    let isPulse = false;
+
+    if (item.day === currentDayCode) {
+      if (nowMins >= startMins && nowMins < endMins) {
+        statusPill = `<span class="class-status-pill status-ongoing">🔴 এখন চলছে</span>`;
+        isPulse = true;
+      } else if (nowMins < startMins && startMins - nowMins <= 60) {
+        const diff = startMins - nowMins;
+        statusPill = `<span class="class-status-pill status-upcoming">⏳ আর ${toBengaliNum(diff)} মি. পর</span>`;
+      } else if (nowMins >= endMins) {
+        statusPill = `<span class="class-status-pill status-completed">✓ সমাপ্ত</span>`;
+      }
+    }
+
+    const dayInfo = DAYS_CONFIG[item.day] || { name: item.day };
+
+    return `
+      <div class="class-card ${isPulse ? 'active-class-pulse' : ''}" data-id="${item.id}">
+        <div class="card-top-row">
+          <div class="subject-badge-wrap">
+            <span class="subject-title">${escapeHtml(item.subject)}</span>
+            <span class="class-grade-tag">${escapeHtml(item.className)}</span>
+          </div>
+          ${statusPill}
+        </div>
+
+        <div class="card-time-row">
+          <div class="time-item">
+            <span class="icon">⏰</span>
+            <span>${formatTime12h(item.startTime)} - ${formatTime12h(item.endTime)}</span>
+          </div>
+          <span class="day-badge">${dayInfo.name}</span>
+        </div>
+
+        <div class="card-meta-row">
+          <div class="meta-item">
+            <span>👤 শিক্ষক:</span>
+            <strong>${escapeHtml(item.teacherName || 'নির্ধারিত নয়')}</strong>
+          </div>
+          <div class="meta-item">
+            <span>🏷️ সেশন:</span>
+            <span>${escapeHtml(item.session || 'চলতি')}</span>
+          </div>
+          ${item.room ? `
+            <div class="meta-item">
+              <span>🚪 কক্ষ:</span>
+              <span>${escapeHtml(item.room)}</span>
+            </div>
+          ` : ''}
+          ${item.date ? `
+            <div class="meta-item">
+              <span>📅 তারিখ:</span>
+              <span>${toBengaliNum(item.date)}</span>
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="card-footer-row">
+          <div class="repeat-indicator">
+            ${item.repeat ? '🔄 প্রতি সপ্তাহে পুনরাবৃত্তি' : '📅 নির্দিষ্ট দিনের ক্লাস'}
+            ${item.alarmEnabled ? ' • 🔔 অ্যালার্ম চালু' : ''}
+          </div>
+          <div class="card-action-btns">
+            <button class="btn-sm-action btn-test-sound" onclick="testClassAlarm('${item.id}')" title="অ্যালার্ম পরীক্ষা">
+              🔔 টেস্ট
+            </button>
+            <button class="btn-sm-action" onclick="editClassPeriod('${item.id}')" title="এডিট করুন">
+              ✏️ এডিট
+            </button>
+            <button class="btn-sm-action btn-delete" onclick="deleteClassPeriod('${item.id}')" title="মুছে ফেলুন">
+              🗑️
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// ==========================================
+// TABS & NAVIGATION
+// ==========================================
+function initTabs() {
+  const tabs = document.querySelectorAll('.day-tab-btn');
+  const currentDay = getCurrentDayCode();
+
+  tabs.forEach(tab => {
+    const day = tab.getAttribute('data-day');
+    // Highlight today tab
+    if (day === currentDay) {
+      tab.classList.add('today-highlight');
+    }
+
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      state.selectedDayTab = day;
+      renderClasses();
+    });
+  });
+}
+
+// ==========================================
+// MODALS LOGIC
+// ==========================================
+function initModals() {
+  // Add Class FAB Button
+  document.getElementById('btnOpenAddClassModal').addEventListener('click', () => {
+    openAddClassModal();
+  });
+
+  document.getElementById('btnCloseClassModal').addEventListener('click', () => {
+    closeModal('classModal');
+  });
+
+  // Profile Modal
+  document.getElementById('btnOpenProfileModal').addEventListener('click', () => {
+    openModal('profileModal');
+  });
+
+  document.getElementById('btnCloseProfileModal').addEventListener('click', () => {
+    closeModal('profileModal');
+  });
+
+  // QR Modal
+  document.getElementById('btnOpenQrModal').addEventListener('click', () => {
+    openQrModal();
+  });
+
+  document.getElementById('btnCloseQrModal').addEventListener('click', () => {
+    closeModal('qrModal');
+  });
+
+  // Quick sound preview
+  document.getElementById('btnQuickTestSound').addEventListener('click', () => {
+    if (window.AudioEngine) {
+      window.AudioEngine.previewBellSound();
+    }
+  });
+
+  document.getElementById('btnTestSoundFull').addEventListener('click', () => {
+    if (window.AudioEngine) {
+      window.AudioEngine.previewBellSound();
+    }
+  });
+
+  // Dismiss Alarm Fullscreen Modal
+  document.getElementById('btnDismissAlarm').addEventListener('click', () => {
+    dismissAlarm();
+  });
+
+  // Subject Dropdown Custom handling
+  const subjectSelect = document.getElementById('periodSubject');
+  const customSubjectInput = document.getElementById('periodCustomSubject');
+  subjectSelect.addEventListener('change', () => {
+    if (subjectSelect.value === 'কাস্টম') {
+      customSubjectInput.style.display = 'block';
+      customSubjectInput.required = true;
+    } else {
+      customSubjectInput.style.display = 'none';
+      customSubjectInput.required = false;
+    }
+  });
+
+  // Class Dropdown Custom handling
+  const classSelect = document.getElementById('periodClass');
+  const customClassInput = document.getElementById('periodCustomClass');
+  classSelect.addEventListener('change', () => {
+    if (classSelect.value === 'কাস্টম') {
+      customClassInput.style.display = 'block';
+      customClassInput.required = true;
+    } else {
+      customClassInput.style.display = 'none';
+      customClassInput.required = false;
+    }
+  });
+
+  // Class Period Form Submit
+  const classForm = document.getElementById('classPeriodForm');
+  classForm.addEventListener('submit', handleClassFormSubmit);
+}
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('active');
+  }
+}
+
+function openAddClassModal() {
+  document.getElementById('classModalTitle').textContent = 'নতুন ক্লাস পিরিয়ড যুক্ত করুন';
+  document.getElementById('editClassId').value = '';
+  document.getElementById('classPeriodForm').reset();
+
+  // Pre-fill Teacher Name from Profile
+  if (state.profile && state.profile.teacherName) {
+    document.getElementById('periodTeacherName').value = state.profile.teacherName;
+  } else {
+    document.getElementById('periodTeacherName').value = 'মো: শফিকুল আলম';
+  }
+
+  // Pre-fill current day or selected tab
+  let targetDay = state.selectedDayTab;
+  if (targetDay === 'today' || targetDay === 'all') {
+    const cur = getCurrentDayCode();
+    targetDay = cur === 'fri' ? 'sat' : cur;
+  }
+  document.getElementById('periodDay').value = targetDay;
+  document.getElementById('periodRepeat').checked = true;
+  document.getElementById('periodAlarm').checked = true;
+
+  document.getElementById('periodCustomSubject').style.display = 'none';
+  document.getElementById('periodCustomClass').style.display = 'none';
+
+  openModal('classModal');
+}
+
+window.openAddClassModal = openAddClassModal;
+
+window.editClassPeriod = function(id) {
+  const item = state.classes.find(c => c.id === id);
+  if (!item) return;
+
+  document.getElementById('classModalTitle').textContent = 'ক্লাস পিরিয়ড এডিট করুন';
+  document.getElementById('editClassId').value = item.id;
+  document.getElementById('periodTeacherName').value = item.teacherName || '';
+
+  // Subject
+  const subjectSelect = document.getElementById('periodSubject');
+  const customSubjectInput = document.getElementById('periodCustomSubject');
+  let subjectFound = false;
+  for (let opt of subjectSelect.options) {
+    if (opt.value === item.subject) {
+      subjectSelect.value = item.subject;
+      customSubjectInput.style.display = 'none';
+      subjectFound = true;
+      break;
+    }
+  }
+  if (!subjectFound) {
+    subjectSelect.value = 'কাস্টম';
+    customSubjectInput.value = item.subject;
+    customSubjectInput.style.display = 'block';
+  }
+
+  // Class
+  const classSelect = document.getElementById('periodClass');
+  const customClassInput = document.getElementById('periodCustomClass');
+  let classFound = false;
+  for (let opt of classSelect.options) {
+    if (opt.value === item.className) {
+      classSelect.value = item.className;
+      customClassInput.style.display = 'none';
+      classFound = true;
+      break;
+    }
+  }
+  if (!classFound) {
+    classSelect.value = 'কাস্টম';
+    customClassInput.value = item.className;
+    customClassInput.style.display = 'block';
+  }
+
+  document.getElementById('periodSession').value = item.session || '';
+  document.getElementById('periodDay').value = item.day || 'sat';
+  document.getElementById('periodRoom').value = item.room || '';
+  document.getElementById('periodStartTime').value = item.startTime || '';
+  document.getElementById('periodEndTime').value = item.endTime || '';
+  document.getElementById('periodDate').value = item.date || '';
+  document.getElementById('periodRepeat').checked = item.repeat !== false;
+  document.getElementById('periodAlarm').checked = item.alarmEnabled !== false;
+
+  openModal('classModal');
+};
+
+window.deleteClassPeriod = function(id) {
+  const item = state.classes.find(c => c.id === id);
+  if (!item) return;
+  if (confirm(`আপনি কি "${item.subject}" (${item.className}) ক্লাসটি মুছে ফেলতে চান?`)) {
+    state.classes = state.classes.filter(c => c.id !== id);
+    saveClasses();
+  }
+};
+
+function handleClassFormSubmit(e) {
+  e.preventDefault();
+
+  const editId = document.getElementById('editClassId').value;
+  const teacherName = document.getElementById('periodTeacherName').value.trim();
+
+  // Subject
+  let subject = document.getElementById('periodSubject').value;
+  if (subject === 'কাস্টম') {
+    subject = document.getElementById('periodCustomSubject').value.trim();
+  }
+
+  // Class
+  let className = document.getElementById('periodClass').value;
+  if (className === 'কাস্টম') {
+    className = document.getElementById('periodCustomClass').value.trim();
+  }
+
+  const session = document.getElementById('periodSession').value.trim();
+  const day = document.getElementById('periodDay').value;
+  const room = document.getElementById('periodRoom').value.trim();
+  const startTime = document.getElementById('periodStartTime').value;
+  const endTime = document.getElementById('periodEndTime').value;
+  const date = document.getElementById('periodDate').value;
+  const repeat = document.getElementById('periodRepeat').checked;
+  const alarmEnabled = document.getElementById('periodAlarm').checked;
+
+  if (startTime >= endTime) {
+    alert('ক্লাস শেষের সময় অবশ্যই শুরুর সময়ের চেয়ে বেশি হতে হবে!');
+    return;
+  }
+
+  if (editId) {
+    // Update existing
+    const idx = state.classes.findIndex(c => c.id === editId);
+    if (idx !== -1) {
+      state.classes[idx] = {
+        ...state.classes[idx],
+        teacherName,
+        subject,
+        className,
+        session,
+        day,
+        room,
+        startTime,
+        endTime,
+        date,
+        repeat,
+        alarmEnabled
+      };
+    }
+  } else {
+    // Add new
+    const newClass = {
+      id: 'cls_' + Date.now(),
+      teacherName,
+      subject,
+      className,
+      session,
+      day,
+      room,
+      startTime,
+      endTime,
+      date,
+      repeat,
+      alarmEnabled
+    };
+    state.classes.push(newClass);
+  }
+
+  saveClasses();
+  closeModal('classModal');
+}
+
+// ==========================================
+// NOTIFICATIONS & ALARM SCHEDULER
+// ==========================================
+function checkNotificationPermission() {
+  const banner = document.getElementById('notifBanner');
+  if (!('Notification' in window)) {
+    banner.style.display = 'none';
+    return;
+  }
+
+  if (Notification.permission === 'granted') {
+    banner.style.display = 'none';
+  } else if (Notification.permission !== 'denied') {
+    banner.style.display = 'flex';
+  }
+
+  document.getElementById('btnGrantNotif').addEventListener('click', () => {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        banner.style.display = 'none';
+        if (window.AudioEngine) {
+          window.AudioEngine.getAudioContext();
+        }
+        showSystemNotification('🔔 নোটিফিকেশন চালু হয়েছে', 'ক্লাসের সময় হলে নোটিফিকেশন ও বেল অ্যালার্ম বাজবে।');
+      }
+    });
+  });
+}
+
+function showSystemNotification(title, body) {
+  if ('Notification' in window && Notification.permission === 'granted') {
+    try {
+      new Notification(title, {
+        body,
+        icon: '/static/icons/icon-192.png',
+        badge: '/static/icons/icon-192.png',
+        vibrate: [500, 250, 500, 250, 500]
+      });
+    } catch (e) {
+      console.log('Notification error:', e);
+    }
+  }
+}
+
+// Scheduler: Runs every 5 seconds
+function initAlarmScheduler() {
+  setInterval(checkAlarms, 5000);
+}
+
+function checkAlarms() {
+  const now = new Date();
+  const currentDay = getCurrentDayCode();
+  if (currentDay === 'fri') return; // Holiday
+
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const currentTimeStr = `${hours}:${minutes}`;
+
+  const todayDateStr = now.toISOString().split('T')[0];
+
+  // Retrieve triggered list from localStorage to avoid duplicate rings on same day
+  let triggered = {};
+  try {
+    triggered = JSON.parse(localStorage.getItem(STORAGE_KEY_TRIGGERED) || '{}');
+  } catch (e) {
+    triggered = {};
+  }
+
+  state.classes.forEach(cls => {
+    if (!cls.alarmEnabled) return;
+    if (cls.day !== currentDay) return;
+
+    // Check specific date if specified
+    if (cls.date && cls.date !== todayDateStr) return;
+
+    // Check time match
+    if (cls.startTime === currentTimeStr) {
+      const triggerKey = `${cls.id}_${todayDateStr}_${cls.startTime}`;
+      if (!triggered[triggerKey]) {
+        // Trigger Alarm!
+        triggered[triggerKey] = true;
+        localStorage.setItem(STORAGE_KEY_TRIGGERED, JSON.stringify(triggered));
+        triggerAlarm(cls);
+      }
+    }
+  });
+}
+
+// Trigger Full Alarm
+function triggerAlarm(cls) {
+  state.activeAlarmClass = cls;
+
+  // 1. Play Sound
+  if (window.AudioEngine) {
+    window.AudioEngine.startAlarmRingtone();
+  }
+
+  // 2. Trigger System Notification
+  const title = `🔔 ক্লাসের সময় হয়েছে: ${cls.subject}`;
+  const body = `শ্রেণি: ${cls.className} | সময়: ${formatTime12h(cls.startTime)} - ${formatTime12h(cls.endTime)} | শিক্ষক: ${cls.teacherName}`;
+  showSystemNotification(title, body);
+
+  // 3. Show Fullscreen Overlay
+  document.getElementById('alarmSubject').textContent = cls.subject;
+  document.getElementById('alarmClass').textContent = `শ্রেণি: ${cls.className} • সেশন: ${cls.session || 'চলতি'}`;
+  document.getElementById('alarmTeacher').textContent = `শিক্ষক: ${cls.teacherName || 'নির্ধারিত নয়'}`;
+  document.getElementById('alarmTime').textContent = `সময়: ${formatTime12h(cls.startTime)} - ${formatTime12h(cls.endTime)}`;
+  document.getElementById('alarmRoom').textContent = cls.room ? `রুম: ${cls.room}` : '';
+
+  const overlay = document.getElementById('alarmOverlay');
+  overlay.classList.add('active');
+}
+
+function dismissAlarm() {
+  if (window.AudioEngine) {
+    window.AudioEngine.stopAlarmRingtone();
+  }
+  const overlay = document.getElementById('alarmOverlay');
+  overlay.classList.remove('active');
+  state.activeAlarmClass = null;
+}
+
+window.testClassAlarm = function(id) {
+  const item = state.classes.find(c => c.id === id);
+  if (item) {
+    triggerAlarm(item);
+  }
+};
+
+// ==========================================
+// PWA INSTALLATION & SERVICE WORKER
+// ==========================================
+function initServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/sw.js')
+      .then(reg => console.log('Service Worker Registered:', reg.scope))
+      .catch(err => console.log('Service Worker registration failed:', err));
+  }
+}
+
+function initPwaInstall() {
+  const bar = document.getElementById('pwaInstallBar');
+  const btn = document.getElementById('btnInstallPwa');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    state.deferredInstallPrompt = e;
+    bar.style.display = 'flex';
+  });
+
+  btn.addEventListener('click', async () => {
+    if (state.deferredInstallPrompt) {
+      state.deferredInstallPrompt.prompt();
+      const { outcome } = await state.deferredInstallPrompt.userChoice;
+      if (outcome === 'accepted') {
+        bar.style.display = 'none';
+      }
+      state.deferredInstallPrompt = null;
+    }
+  });
+
+  window.addEventListener('appinstalled', () => {
+    bar.style.display = 'none';
+  });
+}
+
+// ==========================================
+// QR CODE GENERATOR & MOBILE SHARE
+// ==========================================
+function initQrCode() {
+  // Mobile URL Display
+  const currentUrl = window.location.href;
+  const urlDisplay = document.getElementById('mobileUrlDisplay');
+  if (urlDisplay) {
+    urlDisplay.textContent = currentUrl;
+  }
+}
+
+function openQrModal() {
+  openModal('qrModal');
+  const currentUrl = window.location.href;
+  const urlDisplay = document.getElementById('mobileUrlDisplay');
+  if (urlDisplay) {
+    urlDisplay.textContent = currentUrl;
+  }
+  drawQrCode(currentUrl);
+}
+
+// Lightweight Canvas QR Code rendering
+function drawQrCode(url) {
+  const canvas = document.getElementById('qrCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const size = 200;
+  canvas.width = size;
+  canvas.height = size;
+
+  // Background
+  ctx.fillStyle = '#FFFFFF';
+  ctx.fillRect(0, 0, size, size);
+
+  // Simple QR-like matrix visualizer or use Google Chart QR image
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0, size, size);
+  };
+  img.onerror = () => {
+    // Fallback draw text
+    ctx.fillStyle = '#064E3B';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('মোবাইলে ব্রাউজারে খুলুন:', size / 2, size / 2 - 10);
+    ctx.fillStyle = '#047857';
+    ctx.font = 'bold 13px sans-serif';
+    ctx.fillText(window.location.host, size / 2, size / 2 + 15);
+  };
+  img.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+}
+
+  </script>
+
+</body>
+</html>
